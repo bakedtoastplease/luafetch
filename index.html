@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>luafetch — Fast Lua terminal animation & 3D graphics engine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ HEADER ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <pre class="ascii-art" aria-label="luafetch logo">
+ ██╗     ██╗   ██╗ █████╗ ███████╗███████╗████████╗ ██████╗██╗  ██╗
+ ██║     ██║   ██║██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██║  ██║
+ ██║     ██║   ██║███████║█████╗  █████╗     ██║   ██║     ███████║
+ ██║     ██║   ██║██╔══██║██╔══╝  ██╔══╝     ██║   ██║     ██╔══██║
+ ███████╗╚██████╔╝██║  ██║██║     ███████╗   ██║   ╚██████╗██║  ██║
+ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝
+      </pre>
+      <p class="header-tagline">
+        <span class="prompt">$</span>&nbsp;Fast Lua terminal <span class="accent">animation</span> &amp; <span class="accent">3D graphics</span> engine
+      </p>
+      <div class="header-badges">
+        <span class="badge">CC BY-NC-SA 4.0</span>
+        <span class="badge">debian linux</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════ INSTALL ═══════════════════════════════════════ -->
+  <section class="install-section" id="install">
+    <div class="section-label"><span class="prompt">//</span> INSTALL</div>
+    <div class="terminal-block">
+      <div class="terminal-header">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="terminal-title">bash — luafetch setup</span>
+        <button class="copy-btn" data-target="install-cmd" title="Copy commands">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="copy-label">copy</span>
+        </button>
+      </div>
+      <div class="terminal-body">
+        <code id="install-cmd"><span class="t-prompt">~</span> <span class="t-cmd">sudo apt install</span> luafetch
+
+<span class="t-comment"># run a scene</span>
+<span class="t-prompt">~</span> <span class="t-cmd">luafetch</span> cube_3d_render.lua
+<span class="t-prompt">~</span> <span class="t-cmd">luafetch</span> matrix_rain.lua
+<span class="t-prompt">~</span> <span class="t-cmd">luafetch</span> donut_3d.lua</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SCENE GALLERY ════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-label"><span class="prompt">//</span> SCENE DEMOS</div>
+
+    <div class="vscode-layout">
+
+      <!-- Sidebar -->
+      <aside class="vscode-sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-icon">⬡</span> EXPLORER
+        </div>
+        <div class="sidebar-dir-label">
+          <span class="chevron">▾</span> luafetch / scripts
+        </div>
+        <ul class="file-list" id="file-list">
+          <li class="file-item skeleton" aria-hidden="true"><span class="file-icon">◌</span> loading...</li>
+          <li class="file-item skeleton" aria-hidden="true"><span class="file-icon">◌</span> loading...</li>
+          <li class="file-item skeleton" aria-hidden="true"><span class="file-icon">◌</span> loading...</li>
+        </ul>
+        <div class="sidebar-error hidden" id="sidebar-error">
+          <span class="error-icon">✖</span>
+          <span id="error-msg">Failed to load scenes.</span>
+        </div>
+      </aside>
+
+      <!-- Main pane -->
+      <main class="vscode-main">
+        <div class="tab-bar">
+          <button class="tab active" data-tab="preview">
+            <span class="tab-icon">▶</span> Preview
+          </button>
+          <button class="tab" data-tab="code">
+            <span class="tab-icon">⌥</span> Source
+          </button>
+          <div class="tab-filename" id="tab-filename">— select a scene —</div>
+        </div>
+
+        <!-- Preview pane -->
+        <div class="pane" id="pane-preview">
+          <div class="pane-placeholder" id="preview-placeholder">
+            <div class="placeholder-glyph">▶</div>
+            <p>Select a scene from the sidebar<br>to preview its terminal output</p>
+          </div>
+          <div class="media-container hidden" id="media-container"></div>
+        </div>
+
+        <!-- Source pane -->
+        <div class="pane hidden" id="pane-code">
+          <div class="pane-placeholder" id="code-placeholder">
+            <div class="placeholder-glyph">{ }</div>
+            <p>Select a scene to view its Lua source</p>
+          </div>
+          <div class="code-viewer hidden" id="code-viewer">
+            <div class="code-lang-badge">lua</div>
+            <div class="code-scroll">
+              <table class="code-table" id="code-table"></table>
+            </div>
+          </div>
+          <div class="code-loading hidden" id="code-loading">
+            <span class="spinner"></span> fetching scene source...
+          </div>
+        </div>
+      </main>
+
+    </div><!-- /vscode-layout -->
+  </section>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <span class="prompt">$</span>
+    luafetch · <a href="https://github.com/bakedtoastplease/bakedtoastplease.github.io" target="_blank" rel="noopener">github</a> ·
+    CC BY-NC-SA 4.0 © <span id="footer-year"></span> bakedtoastplease
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
