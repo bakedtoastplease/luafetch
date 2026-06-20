@@ -232,7 +232,7 @@ code { font-family: var(--font-mono); }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  min-height: 500px;
+  height: 500px;
 }
 
 /* ── Sidebar ───────────────────────────────────────────────── */
