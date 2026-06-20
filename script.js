@@ -6,7 +6,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 const API_URL =
-  'https://api.github.com/repos/bakedtoastplease/bakedtoastplease.github.io/contents/luafetch/scripts';
+  'https://api.github.com/repos/bakedtoastplease/luafetch/contents/scripts';
 
 /* Recognised media extensions for scene previews (recordings, screenshots) */
 const VIDEO_EXT = ['mp4', 'webm', 'mpv'];
@@ -116,12 +116,12 @@ function renderSidebar() {
 
 /** Return a single character that visually hints at the scene type */
 function sceneIcon(name) {
-  if (/cube|box|3d|mesh|poly/i.test(name))   return '◈';
-  if (/matrix|rain|fall|drop/i.test(name))   return '▓';
-  if (/donut|torus|ring/i.test(name))        return '◉';
-  if (/star|galaxy|space|orbit/i.test(name)) return '✦';
-  if (/wave|sine|ripple/i.test(name))        return '∿';
-  if (/fire|flame|plasma/i.test(name))       return '▲';
+  if (/spark|fire|flame|plasma/i.test(name))  return '✦';
+  if (/cube|box|3d|mesh|poly/i.test(name))    return '◈';
+  if (/matrix|rain|fall|drop/i.test(name))    return '▓';
+  if (/donut|torus|ring/i.test(name))         return '◉';
+  if (/star|galaxy|space|orbit/i.test(name))  return '★';
+  if (/wave|sine|ripple/i.test(name))         return '∿';
   return '▶';
 }
 
