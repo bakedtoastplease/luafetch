@@ -1,0 +1,50 @@
+luafetch (1.0-7) unstable; urgency=medium
+
+  * Sorry for so many uploads! I had some technical problems with Lintian.
+  * I'm a starting-developer >_< and I'm learning how to do this right.
+  * Removed build-essential from Build-Depends.
+  * Added missing manual page (luafetch.1).
+
+ -- Svyatoslav (Delta Tech) <dtechtttt@gmail.com>  Sat, 20 Jun 2026 20:30:00 +0500
+
+luafetch (1.0-6) unstable; urgency=medium
+
+  * Fix upload permission issues.
+
+ -- Svyatoslav (Delta Tech / bakedtoastplease) <dtechtttt@gmail.com>  Sat, 20 Jun 2026 19:30:00 +0500
+
+luafetch (1.0-5) unstable; urgency=medium
+
+  * Change license to MIT for better Debian compatibility.
+  * Update copyright attribution.
+
+ -- Svyatoslav (Delta Tech / bakedtoastplease) <dtechtttt@gmail.com>  Sat, 20 Jun 2026 19:10:00 +0500
+
+luafetch (1.0-4) unstable; urgency=medium
+
+  * Fix packaging errors: include orig.tar.xz in upload.
+  * Correct source packaging for 3.0 (quilt) format.
+
+ -- Svyatoslav (Delta Tech) <dtechtttt@gmail.com>  Sat, 20 Jun 2026 18:55:00 +0500
+
+luafetch (1.0-3) unstable; urgency=medium
+
+  * Fix lintian errors and warnings.
+  * Remove prebuilt binaries from source directory.
+  * Update standards version to 4.7.4.
+  * Switch to source format 3.0 (quilt).
+  * Add DEP5 debian/copyright file with CC-BY-NC-SA-4.0 license.
+
+ -- Svyatoslav (Delta Tech) <dtechtttt@gmail.com>  Sat, 20 Jun 2026 18:40:00 +0500
+
+luafetch (1.0-2) unstable; urgency=medium
+
+  * Re-upload with published GPG key.
+
+ -- Svyatoslav <dtechtttt@gmail.com>  Sat, 20 Jun 2026 18:10:00 +0500
+
+luafetch (1.0-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Svyatoslav <dtechtttt@gmail.com>  Sat, 20 Jun 2026 15:00:00 +0500

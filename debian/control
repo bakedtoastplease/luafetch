@@ -1,0 +1,14 @@
+Source: luafetch
+Section: utils
+Priority: optional
+Maintainer: Svyatoslav (Delta Tech) <dtechtttt@gmail.com>
+Build-Depends: debhelper-compat (= 13), liblua5.4-dev
+Standards-Version: 4.7.2
+Homepage: https://github.com/bakedtoastplease/luafetch
+
+Package: luafetch
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, lua5.4
+Description: Fast Lua terminal animation & 3D graphics engine
+ A fast engine written in C and Lua for rendering 3D graphics
+ and playing complex animations directly inside the Linux terminal.
