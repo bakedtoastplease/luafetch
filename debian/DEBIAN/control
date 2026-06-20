@@ -1,0 +1,10 @@
+Package: luafetch
+Version: 1.0-1
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: Svyatoslav <techdelta@example.com>
+Depends: liblua5.3-0, libc6
+Description: Fast Lua terminal animation player
+ Luafetch is a simple and fast tool to display
+ animations in your terminal using Lua scripts.
