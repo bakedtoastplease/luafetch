@@ -1,0 +1,4 @@
+luafetch
+*.o
+*.deb
+.DS_Store
