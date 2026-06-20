@@ -1,0 +1,24 @@
+-- =============================================================================
+-- LUAFETCH SCRIPTING ARCHITECTURE MANUAL
+-- =============================================================================
+-- 1. ENGINE API (Bridge between C and Lua)
+--    python_write(str)   : Pushes a raw string to the terminal output.
+--    python_flush()      : Forces the OS to display the buffer content. 
+--                          CALL THIS ONCE PER FRAME after table.concat().
+--    python_sleep(sec)   : Controls timing. 0.03s is standard for 30 FPS.
+--    get_term_size()     : Returns (columns, rows). Dynamic sizing.
+--
+-- 2. RENDERING PHILOSOPHY (The "Grid" Approach)
+--    To avoid flickering, NEVER call python_write() inside loops.
+--    Instead:
+--    A. Create a 2D table representing the screen [grid[y][x]].
+--    B. Fill the grid with char, r, g, b values.
+--    C. Flatten the grid into a single buffer string using table.concat().
+--    D. Output the entire buffer in one go.
+--
+-- 3. ANSI ANSI ESCAPE SEQUENCES
+--    "\27[H"             : Reset cursor to top-left (1,1).
+--    "\27[2J"            : Clear the entire terminal screen.
+--    "\27[38;2;R;G;Bm"   : Set TrueColor (RGB). 
+--    "\27[0m"            : Reset color to default.
+-- =============================================================================
